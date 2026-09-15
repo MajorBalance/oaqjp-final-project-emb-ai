@@ -7,7 +7,7 @@ def emotion_detector(text_to_analyze):
     myobj = { "raw_document": { "text": text_to_analyze } }
     response = requests.post(url, json=myobj, headers=headers)
     data = json.loads(response.text)
-    emotions = data['emotion']['emotion']
+    emotions = data['emotionPredictions'][0]['emotion']
     anger = emotions['anger']
     disgust = emotions['disgust']
     fear = emotions['fear']
